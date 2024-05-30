@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import Home from './pages/Home';
+import Browse from './pages/Browse.jsx';
+import Contact from './pages/Contact.jsx';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
@@ -18,9 +20,19 @@ const router = createBrowserRouter([
     error: <NoMatch />,
     children: [
       {
-        index: true, 
+        index: true,
         element: <Home />
       }, {
+        path: '/home',
+        element: <Home />
+      }, {
+        path: '/browse',
+        element: <Browse />
+      }, 
+      {
+        path: '/contact',
+        element: <Contact />
+      },{
         path: '/login',
         element: <Login />
       }, {

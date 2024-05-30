@@ -1,13 +1,15 @@
-import ProductList from "../components/ProductList";
-import CategoryMenu from "../components/CategoryMenu";
-import Cart from "../components/Cart";
+// import ProductList from "../components/ProductList";
+// import CategoryMenu from "../components/CategoryMenu";
+// import Cart from "../components/Cart";
 
 const Home = () => {
   return (
     <div className="container">
-      <CategoryMenu />
-      <ProductList />
-      <Cart />
+      This is my home page. It will have a featured and about me section.
+      This is my home page. It will have a featured and about me section.
+      This is my home page. It will have a featured and about me section.
+      This is my home page. It will have a featured and about me section.
+    
     </div>
   );
 };

@@ -1,16 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,6 +33,7 @@ function App() {
       <StoreProvider>
         <Nav />
         <Outlet />
+        <Footer />
       </StoreProvider>
     </ApolloProvider>
   );

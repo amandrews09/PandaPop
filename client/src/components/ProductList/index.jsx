@@ -5,10 +5,10 @@ import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import { Container, Row, Col } from 'react-bootstrap'; // Import Bootstrap components
+import { Container, Row, Col } from 'react-bootstrap';
 import spinner from '../../assets/spinner.gif';
 
-function ProductList() {
+function ProductList({ showTitle = true, limit }) {
   const [state, dispatch] = useStoreContext();
 
   const { currentCategory } = state;
@@ -34,18 +34,28 @@ function ProductList() {
     }
   }, [data, loading, dispatch]);
 
-  function filterProducts() {
-    if (!currentCategory) {
-      return state.products;
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
+    return array;
+  }
 
-    return state.products.filter(product => product.category._id === currentCategory);
+  function filterProducts() {
+    let filteredProducts = state.products;
+    if (currentCategory) {
+      filteredProducts = filteredProducts.filter(product => product.category._id === currentCategory);
+    }
+    if (limit) {
+      return shuffleArray(filteredProducts).slice(0, limit);
+    }
+    return filteredProducts;
   }
 
   return (
     <Container>
-      {/* <div className="my-2"> */}
-      <h2>Our Products:</h2>
+      {showTitle && <h2>BROWSE PRODUCTS</h2>}
       <Row>
         {state.products.length ? (
           <>
@@ -66,8 +76,6 @@ function ProductList() {
           <h3>You haven't added any products yet!</h3>
         )}
         {loading ? <img src={spinner} alt="loading" /> : null}
-
-        {/* </div> */}
       </Row>
     </Container>
   );

@@ -203,12 +203,17 @@ input:focus {
   color: var(--error);
 }
 
+.img-container {
+  width: 100%;
+  overflow: hidden;
+}
+
 .productImage {
   width: 100%; /* Ensures the image fits within the container */
   transition: transform 0.3s ease-in-out; /* Smooth transition effect */
 }
 .productImage:hover {
-    transform: scale(1.5); /* Scale the image to 1.2 times its original size */
+    transform: scale(1.2); /* Scale the image to 1.2 times its original size */
 }
 
 @media screen and (max-width: 768px) {

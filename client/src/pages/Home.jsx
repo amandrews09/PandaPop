@@ -10,6 +10,7 @@ const Home = () => {
       </div>
       <div>
         <h2>ABOUT</h2>
+        <img src="../public/images/panda-pic.jpeg" alt="" />
         <p>
           Hi! I'm Manda the panda. My journey into the world of pop art began in early 2020, just before the onset of the COVID-19 pandemic. It all started as a fun, collaborative project with my daughter—we spent an afternoon painting Disney figurines together. She chose Minnie Mouse, while I opted for Mickey Mouse. That simple, joyful activity sparked a passion in me that I hadn’t anticipated. As the months went by, I found myself increasingly drawn to creating vibrant and whimsical pieces, especially focusing on fairy houses.
           <br />

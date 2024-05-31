@@ -1,5 +1,6 @@
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import './style.css';
 
 function Nav() {
 
@@ -25,27 +26,27 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/home">
-              Home
+              HOME
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/browse">
-              Browse
+              BROWSE
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/contact">
-              Contact
+              CONTACT
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/signup">
-              Signup
+              SIGNUP
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/login">
-              Login
+              LOGIN
             </Link>
           </li>
         </ul>

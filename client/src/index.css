@@ -21,8 +21,9 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: "din-condensed", sans-serif;
   font-weight: 400;
+  font-style: normal;
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
@@ -34,8 +35,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+font-family: "din-condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   margin: 5px 0;
   line-height: 1.25;
 }
@@ -116,11 +118,7 @@ span[role="img"] {
   cursor: default;
 }
 
-form {
-  width: 40%;
-}
-
-input {
+/*input {
   font-size: 1rem;
   padding: 0.25rem;
   border: 1px solid var(--dark);
@@ -132,14 +130,14 @@ input {
 input:focus {
   border: 1px solid var(--secondary);
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
-}
+}*/
 
-.container {
+/*.container {
   width: 85%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-}
+}*/
 
 .flex-row {
   display: flex;

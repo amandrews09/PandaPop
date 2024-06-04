@@ -33,7 +33,6 @@ function App() {
       <StoreProvider>
         <Nav />
         <Outlet />
-        <Footer />
       </StoreProvider>
     </ApolloProvider>
   );

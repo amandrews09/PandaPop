@@ -35,18 +35,16 @@ function ProductItem(item) {
   return (
     <div>
       <Link to={`/products/${_id}`}>
-        <div className='img-container'>
+        <div className="img-container">
           <img alt={name} src={`/images/${image}`} className="productImage" />
         </div>
-        <p>{name}</p>
+        {/* <p>{name}</p> */}
       </Link>
-      <div>
-        <div>
-          {quantity} {pluralize('item', quantity)} in stock
-        </div>
+      <div className='d-flex flex-column align-items-center'>
+        {quantity} {pluralize('item', quantity)} in stock
         <span>${price}</span>
+        <button onClick={addToCart}>Add to cart</button>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
     </div>
   );
 }

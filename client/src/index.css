@@ -1,4 +1,4 @@
-:root {
+#root {
   --primary: #232F3E;
   --secondary: #F3A847;
   --tertiary: #B12704;
@@ -7,6 +7,7 @@
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
+  display: flex;
 }
 
 * {
@@ -82,11 +83,19 @@ a:hover {
 }
 
 header {
-  background: var(--primary);
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 10%;
+background-color: rgb(157, 241, 248);
 }
 
 header a {
-  color: var(--light);
+ text-decoration: none;
+}
+
+header ul {
+  padding: 0;
 }
 
 button {
@@ -132,12 +141,6 @@ input:focus {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
 }*/
 
-/*.container {
-  width: 85%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}*/
 
 .flex-row {
   display: flex;

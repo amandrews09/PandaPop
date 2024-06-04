@@ -1,17 +1,14 @@
-import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 function Nav() {
-
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
+            <Link to="/orderHistory">Order History</Link>
           </li>
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
@@ -23,31 +20,21 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex-row">
+        <ul className="d-flex flex-column align-items-center">
           <li className="mx-1">
-            <Link to="/home">
-              HOME
-            </Link>
+            <Link to="/home">HOME</Link>
           </li>
           <li className="mx-1">
-            <Link to="/browse">
-              BROWSE
-            </Link>
+            <Link to="/browse">BROWSE</Link>
           </li>
           <li className="mx-1">
-            <Link to="/contact">
-              CONTACT
-            </Link>
+            <Link to="/contact">CONTACT</Link>
           </li>
           <li className="mx-1">
-            <Link to="/signup">
-              SIGNUP
-            </Link>
+            <Link to="/signup">SIGNUP</Link>
           </li>
           <li className="mx-1">
-            <Link to="/login">
-              LOGIN
-            </Link>
+            <Link to="/login">LOGIN</Link>
           </li>
         </ul>
       );
@@ -55,17 +42,14 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
+    <header className="">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          <img className="w-75 ms-4 mt-5" src="../src/assets/pandapop-logo.jpg" alt="logo" />
         </Link>
       </h1>
 
-      <nav>
-        {showNavigation()}
-      </nav>
+      <nav>{showNavigation()}</nav>
     </header>
   );
 }

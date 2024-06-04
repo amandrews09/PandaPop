@@ -7,6 +7,7 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import { Container, Row, Col } from 'react-bootstrap';
 import spinner from '../../assets/spinner.gif';
+import Nav from '../Nav';
 
 function ProductList({ showTitle = true, limit }) {
   const [state, dispatch] = useStoreContext();
@@ -54,13 +55,13 @@ function ProductList({ showTitle = true, limit }) {
   }
 
   return (
-    <Container>
+    <div>
       {showTitle && <h2>BROWSE PRODUCTS</h2>}
-      <Row>
+      <Row >
         {state.products.length ? (
           <>
             {filterProducts().map(product => (
-              <Col key={product._id} lg={4} className="mb-3">
+              <Col key={product._id} lg={4} className='mb-3' id='cards'>
                 <ProductItem
                   key={product._id}
                   _id={product._id}
@@ -77,7 +78,7 @@ function ProductList({ showTitle = true, limit }) {
         )}
         {loading ? <img src={spinner} alt="loading" /> : null}
       </Row>
-    </Container>
+    </div>
   );
 }
 

@@ -6,7 +6,7 @@ const Browse = () => {
   return (
     <div className="container">
       <ProductList />
-      <Cart />
+      {/* <Cart /> */}
       <Footer />
     </div>
   );

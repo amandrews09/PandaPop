@@ -19,111 +19,120 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
-      name: 'Tin of Cookies',
-      description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
+      name: 'Ariel',
+      description: 
+        'The statue depicts Ariel, the iconic character from "The Little Mermaid," reimagined in a vibrant pop art style. Bold, contrasting colors and graphic patterns bring a modern, dynamic energy to the classic figure, blending nostalgia with contemporary artistic flair.',
+      image: 'Ariel.jpg',
       category: categories[0]._id,
-      price: 2.99,
-      quantity: 500
+      price: 35,
+      quantity: 1
     },
     {
-      name: 'Canned Coffee',
+      name: 'Fairy',
       description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
+        'This delightful fairy statue is a perfect addition to any whimsical decor or fairy garden. Sitting gracefully on a tree stump, the fairy is beautifully crafted and painted in a striking pop art style. Her vibrant dress features bold shades of green and orange with playful polka dots, while her wings are a kaleidoscope of bright colors and patterns. With flowing blonde hair and a serene expression, she exudes a charming, ethereal presence. The detailed tree stump base adds a natural touch, making this piece a captivating blend of fantasy and contemporary art. Ideal for collectors and fairy enthusiasts, it brings a touch of magic and vibrant color to any space.',
+      image: 'Fairy.jpg',
       category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
+      price: 30,
+      quantity: 1
     },
     {
-      name: 'Toilet Paper',
+      name: 'Fairy Tree House',
       category: categories[1]._id,
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
+        'This enchanting fairy house statue is a perfect blend of whimsy and vibrant pop art style. The house is intricately designed with a tree stump base and a leafy green roof, adorned with colorful, stylized insects, including a dragonfly and ladybugs. The front door is a patchwork of bold, contrasting patterns and colors, giving it a playful, eye-catching appeal. Accentuated with red toadstools and a cheerful, multi-colored snail, this piece radiates charm and creativity. Ideal for fairy garden enthusiasts or as a unique decorative piece, it brings a touch of magic and contemporary art to any space.',
+      image: 'FairyHouse1.jpg',
+      price: 50,
+      quantity: 1
     },
     {
-      name: 'Handmade Soap',
+      name: 'Blossom Fairy House',
       category: categories[1]._id,
       description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
+        'This charming fairy house statue is a delightful fusion of fantasy and pop art, perfect for any whimsical decor or fairy garden. Crafted to resemble a cozy tree house, it features a textured bark-like base with entwined branches and vibrant, oversized flowers. The roof is adorned with large, colorful blossoms, and the whimsical door is painted in a patchwork of bright, contrasting hues, adding a playful touch. The intricate detailing and bold, vivid colors bring a lively, enchanting feel to this piece. Ideal for fairy enthusiasts and collectors, it adds a splash of magic and contemporary artistry to any space.',
+      image: 'FairyHouse2.jpg',
+      price: 65,
+      quantity: 1
     },
     {
-      name: 'Set of Wooden Spoons',
+      name: 'Fairy House with Blueberry Expansion',
       category: categories[1]._id,
       description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
-      price: 14.99,
-      quantity: 100
+        'A captivating piece that blends fantasy with vibrant pop art. This intricately designed fairy house features a charming two-story structure with a whimsical pink flower roof dripping with golden nectar, adding a touch of enchantment. Adjacent to the main house is a delightful blueberry extension, complete with a brightly painted door and playful ladybug and snail accents. The vivid colors and detailed craftsmanship bring this fairy abode to life, making it a perfect centerpiece for any fairy garden or whimsical decor.',
+      image: 'FairyHouse3.jpg',
+      price: 70,
+      quantity: 1
     },
     {
-      name: 'Camera',
+      name: 'Giraffe',
       category: categories[2]._id,
       description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
+        'This delightful piece features a giraffe sitting gracefully, its long neck adorned with a playful patchwork of vibrant colors and bold patterns. Each section of the giraffe body is painted in a different hue, including bright oranges, blues, pinks, and greens, with fun details like polka dots, stars, and hearts. The giraffe has a cheerful expression and whimsical design, complete with a small crown on its head, makes it a standout piece that brings a touch of joy and artistic flair to any space.',
       image: 'camera.jpg',
-      price: 399.99,
-      quantity: 30
+      price: 40,
+      quantity: 1
     },
     {
-      name: 'Tablet',
+      name: 'No Drama Llama',
       category: categories[2]._id,
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
-      price: 199.99,
-      quantity: 30
+        'This adorable piece showcases a llama in a playful pop art style, featuring a vibrant patchwork of colors and patterns. With a delightful mix of pinks, blues, oranges, and greens, each section is decorated with fun designs like polka dots, stripes, and hearts, adding a whimsical touch. The llama has a sweet expression and cheerful appearance making it an eye-catching and heartwarming addition to your home decor.',
+      image: 'Llama.jpg',
+      price: 25,
+      quantity: 1
     },
     {
-      name: 'Tales at Bedtime',
+      name: 'Seaside Mermaid',
       category: categories[3]._id,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
-      price: 9.99,
-      quantity: 100
+        'This captivating piece features a beautifully crafted mermaid reclining on a rock, her long hair flowing in bold, vibrant hues of orange and red. Her top and tail are adorned with striking patterns and colors, including bright greens and blues, making her stand out as a true work of pop art. The base is decorated with charming details like a starfish and seashells, adding to the enchanting seaside scene.',
+      image: 'Mermaid.jpg',
+      price: 40,
+      quantity: 1
     },
     {
-      name: 'Spinning Top',
+      name: 'Mouse Entertainer',
       category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 1.99,
-      quantity: 1000
+      description: 'Add a touch of nostalgic charm and modern flair to your collection with this mouse. This vibrant statue features a beloved classic character, reimagined in a playful pop art style. With a bright, multi-colored outfit, including red shorts, a yellow shoe, and a blue polka-dotted shoe, this figurine stands out with its bold patterns and vivid hues.',
+      image: 'Mickey.jpg',
+      price: 150,
+      quantity: 1
     },
     {
-      name: 'Set of Plastic Horses',
-      category: categories[4]._id,
-      description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 2.99,
-      quantity: 1000
-    },
-    {
-      name: 'Teddy Bear',
+      name: 'Mushroom Fairy House',
       category: categories[4]._id,
       description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
+        'This enchanting statue features a large mushroom house with a bright red cap, adorned with playful details like a cheerful green caterpillar, vibrant purple mushrooms, and blooming flowers. The door is painted in a lively mix of colors and patterns, adding to the fairy tale charm. Surrounding the house are adorable accents, including ladybugs, enhancing the overall magical feel.',
+      image: 'Mushroom.jpg',
+      price: 30,
+      quantity: 1
     },
     {
-      name: 'Alphabet Blocks',
+      name: 'Snail',
       category: categories[4]._id,
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
+        'Brighten up your space with this delightful and whimsical addition to any decor. This adorable snail is painted in a vibrant pop art style, featuring a sunny yellow body and a colorful, patterned shell. The shell boasts a playful patchwork of bright hues and fun designs, including polka dots, hearts, and stripes, making it a true standout piece. The snail has a cheerful expression and quirky design adding a touch of joy and artistic flair to any room.',
+      image: 'Snail.jpg',
+      price: 25,
+      quantity: 1
+    },
+    {
+      name: 'Turtle',
+      category: categories[4]._id,
+      description:
+        'Add a touch of colorful whimsy to your decor. This charming statue features a turtle with a lively, patchwork shell adorned with a mix of bright colors and playful patterns. Each segment of the shell is uniquely designed, incorporating fun elements like polka dots, geometric shapes, and bold hues. The turtle has a cheerful expression and vivid green body to bring an extra layer of joy to this delightful piece.',
       image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      quantity: 600
+      price: 30,
+      quantity: 1
+    },
+    {
+      name: 'Mamala',
+      category: categories[4]._id,
+      description:
+        'This unique vase features a classic shape with a contemporary twist, showcasing a vibrant patchwork design at the base. The colorful segments are decorated with playful patterns, including stars, stripes, and polka dots in bright hues of yellow, pink, green, and orange. The contrast between the vivid patchwork and the smooth, lavender upper portion of the vase creates a striking visual effect. Perfect for displaying fresh flowers or as a standalone decorative piece.',
+      image: 'Vase.jpg',
+      price: 75,
+      quantity: 0
     }
   ]);
 

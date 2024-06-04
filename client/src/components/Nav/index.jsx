@@ -1,5 +1,6 @@
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import Cart from "../Cart";
 import './style.css';
 
 function Nav() {
@@ -50,6 +51,9 @@ function Nav() {
       </h1>
 
       <nav>{showNavigation()}</nav>
+
+      <Cart />
+
     </header>
   );
 }

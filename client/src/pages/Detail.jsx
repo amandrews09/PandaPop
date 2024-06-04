@@ -4,12 +4,7 @@ import { useQuery } from '@apollo/client';
 
 import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
-import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-  ADD_TO_CART,
-  UPDATE_PRODUCTS,
-} from '../utils/actions';
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, ADD_TO_CART, UPDATE_PRODUCTS } from '../utils/actions';
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
@@ -27,7 +22,7 @@ function Detail() {
   useEffect(() => {
     // already in global store
     if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
+      setCurrentProduct(products.find(product => product._id === id));
     }
     // retrieved from server
     else if (data) {
@@ -36,13 +31,13 @@ function Detail() {
         products: data.products,
       });
 
-      data.products.forEach((product) => {
+      data.products.forEach(product => {
         idbPromise('products', 'put', product);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('products', 'get').then((indexedProducts) => {
+      idbPromise('products', 'get').then(indexedProducts => {
         dispatch({
           type: UPDATE_PRODUCTS,
           products: indexedProducts,
@@ -52,7 +47,7 @@ function Detail() {
   }, [products, data, loading, dispatch, id]);
 
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
+    const itemInCart = cart.find(cartItem => cartItem._id === id);
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
@@ -92,21 +87,17 @@ function Detail() {
           <p>{currentProduct.description}</p>
 
           <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <strong>Stock: </strong>{currentProduct.quantity}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
+            <strong>Price:</strong>${currentProduct.price} <strong>Stock: </strong>
+            {currentProduct.quantity}
+            <button className="me-3 ms-3" onClick={addToCart}>
+              Add to Cart
+            </button>
+            <button disabled={!cart.find(p => p._id === currentProduct._id)} onClick={removeFromCart}>
               Remove from Cart
             </button>
           </p>
 
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
+          <img src={`/images/${currentProduct.image}`} alt={currentProduct.name} />
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}

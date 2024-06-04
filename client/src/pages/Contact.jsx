@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './contact.css';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Footer from '../components/Footer';
+//import Button from 'react-bootstrap/Button';
+//import Form from 'react-bootstrap/Form';
 
 export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -35,10 +36,10 @@ export default function Contact() {
       <h2>CONTACT</h2>
       <form onSubmit={handleSubmit}>
         <p>LET'S CONNECT!</p>
-        <div className="form-group-1 w-25">
+        <div className="form-group-1">
           {/*<label htmlFor="name">Name</label>*/}
           <input
-            className= "form-control form-control-lg"
+            className= "form-control"
             type="text"
             id="name"
             name="name"
@@ -49,10 +50,10 @@ export default function Contact() {
           />
           {errors.name && <span className="error">{errors.name}</span>}
         </div>
-        <div className="form-group-2 w-25">
+        <div className="form-group-2">
           {/*<label htmlFor="email">Email</label>*/}
           <input
-            className="form-control form-control-lg"
+            className="form-control "
             type="email"
             id="email"
             name="email"
@@ -63,10 +64,10 @@ export default function Contact() {
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
-        <div className="form-group-3 w-25">
+        <div className="form-group-3">
           {/* <label htmlFor="message">Message</label> */}
           <textarea
-            className="form-control form-control-lg"
+            className="form-control"
             id="message"
             name="message"
             placeholder="MESSAGE:"
@@ -78,6 +79,8 @@ export default function Contact() {
         </div>
         <button type="submit">SUBMIT</button>
       </form>
+      <Footer />
+
     </div>
   );
 }

@@ -38,7 +38,7 @@ function ProductItem(item) {
         <div className="img-container">
           <img alt={name} src={`/images/${image}`} className="productImage" />
         </div>
-        {/* <p>{name}</p> */}
+        <p>{name}</p>
       </Link>
       <div className='d-flex flex-column align-items-center'>
         {quantity} {pluralize('item', quantity)} in stock

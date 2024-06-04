@@ -1,7 +1,4 @@
 #root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
   --light: #fafafa;
   --dark: #272f32;
   --error: rgb(228, 46, 1);
@@ -17,6 +14,7 @@
 html,
 body {
   min-height: 100%;
+
 }
 
 body {
@@ -28,6 +26,11 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
+  background-image: url('../public/images/pandapop-splatter.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size:cover;
 }
 
 h1,
@@ -48,7 +51,8 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 75px;
+  color: #EE3C96;
 }
 
 h3 {
@@ -87,7 +91,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 10%;
-background-color: rgb(157, 241, 248);
+background-color: rgba(157, 241, 248, 0.24);
+
 }
 
 header a {
@@ -98,16 +103,18 @@ header ul {
   padding: 0;
 }
 
-button {
-  font-size: 1rem;
+
+#cards button {
+  font-size: 16px;
+  font-family: "din-condensed", sans-serif;
   text-decoration: none;
-  padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
   border: none;
   outline: none;
   cursor: pointer;
-  margin: 0 1px;
-  background-color: var(--secondary);
+  background-color: #F3B735;
 }
 
 button:hover {
@@ -125,7 +132,17 @@ img {
 
 span[role="img"] {
   cursor: default;
+  
 }
+ #cards {
+    font-family: "din-condensed", sans-serif;
+ }
+ #cards p {
+   font-family: "din-condensed", sans-serif;
+   text-align: center;
+   text-decoration: none !important;
+
+ }
 
 /*input {
   font-size: 1rem;

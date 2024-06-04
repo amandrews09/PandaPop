@@ -20,7 +20,7 @@ const Cart = () => {
   // Then we should redirect to the checkout with a reference to our session id
   useEffect(() => {
     if (data) {
-      stripePromise.then((res) => {
+      stripePromise.then(res => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
@@ -45,7 +45,7 @@ const Cart = () => {
 
   function calculateTotal() {
     let sum = 0;
-    state.cart.forEach((item) => {
+    state.cart.forEach(item => {
       sum += item.price * item.purchaseQuantity;
     });
     return sum.toFixed(2);
@@ -54,9 +54,8 @@ const Cart = () => {
   // When the submit checkout method is invoked, loop through each item in the cart
   // Add each item id to the productIds array and then invoke the getCheckout query passing an object containing the id for all our products
   function submitCheckout() {
-
     getCheckout({
-      variables: { 
+      variables: {
         products: [...state.cart],
       },
     });
@@ -73,14 +72,14 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
+    <div className="cart z-3">
       <div className="close" onClick={toggleCart}>
         [close]
       </div>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
         <div>
-          {state.cart.map((item) => (
+          {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
 
@@ -88,11 +87,7 @@ const Cart = () => {
             <strong>Total: ${calculateTotal()}</strong>
 
             {/* Check to see if the user is logged in. If so render a button to check out */}
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
+            {Auth.loggedIn() ? <button onClick={submitCheckout}>Checkout</button> : <span>(log in to check out)</span>}
           </div>
         </div>
       ) : (

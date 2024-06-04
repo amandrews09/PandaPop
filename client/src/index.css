@@ -5,6 +5,7 @@
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
   display: flex;
+  width: auto;
 }
 
 * {
@@ -14,23 +15,22 @@
 html,
 body {
   min-height: 100%;
-
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "din-condensed", sans-serif;
+  font-family: 'din-condensed', sans-serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
-  background-image: url('../public/images/pandapop-splatter.png');
+  /* background-image: url('../public/images/pandapop-splatter.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size:cover;
+  background-size:cover; */
 }
 
 h1,
@@ -39,7 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-font-family: "din-condensed", sans-serif;
+  font-family: 'din-condensed', sans-serif;
   font-weight: 400;
   font-style: normal;
   margin: 5px 0;
@@ -52,7 +52,7 @@ h1 {
 
 h2 {
   font-size: 75px;
-  color: #EE3C96;
+  color: #ee3c96;
 }
 
 h3 {
@@ -91,26 +91,24 @@ a:hover {
 }
 
 header {
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 10%;
-background-color: rgba(157, 241, 248, 0.24);
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10%;
+  background-color: rgba(157, 241, 248, 0.24);
 }
 
 header a {
- text-decoration: none;
+  text-decoration: none;
 }
 
 header ul {
   padding: 0;
 }
 
-
 #cards button {
   font-size: 16px;
-  font-family: "din-condensed", sans-serif;
+  font-family: 'din-condensed', sans-serif;
   text-decoration: none;
   padding-left: 10px;
   padding-right: 10px;
@@ -118,35 +116,33 @@ header ul {
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: #F3B735;
+  background-color: #f3b735;
 }
 
 button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 button[disabled] {
   cursor: default;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 img {
   max-width: 100%;
 }
 
-span[role="img"] {
+span[role='img'] {
   cursor: default;
-  
 }
- #cards {
-    font-family: "din-condensed", sans-serif;
- }
- #cards p {
-   font-family: "din-condensed", sans-serif;
-   text-align: center;
-   text-decoration: none !important;
-
- }
+#cards {
+  font-family: 'din-condensed', sans-serif;
+}
+#cards p {
+  font-family: 'din-condensed', sans-serif;
+  text-align: center;
+  text-decoration: none !important;
+}
 
 /*input {
   font-size: 1rem;
@@ -161,7 +157,6 @@ input:focus {
   border: 1px solid var(--secondary);
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
 }*/
-
 
 .flex-row {
   display: flex;
@@ -235,7 +230,7 @@ input:focus {
   transition: transform 0.3s ease-in-out; /* Smooth transition effect */
 }
 .productImage:hover {
-    transform: scale(1.2); /* Scale the image to 1.2 times its original size */
+  transform: scale(1.2); /* Scale the image to 1.2 times its original size */
 }
 
 @media screen and (max-width: 768px) {

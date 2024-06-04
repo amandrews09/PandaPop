@@ -1,29 +1,28 @@
 .about p {
-	color: black;
-	font-family: "din-condensed", sans-serif;
-	font-size: 20px;
-	margin: 40px;
+  color: black;
+  font-family: 'din-condensed', sans-serif;
+  font-size: 20px;
+  margin: 40px;
 }
 
 h2 {
-	font-size: 75px;
-	color: #EE3C96;
-	padding-top: 20px;
-
+  font-size: 75px;
+  color: #ee3c96;
+  padding-top: 20px;
 }
 
-.container {
-	padding-top: 100px;
+.home {
+  padding-top: 100px;
+  background-image: url('../public/images/pandapop-splatter.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  max-width: 1500px;
+  padding-left: 6.5vw;
+  padding-right: 6.5vw;
 }
-
-/*.splatter-image body {
-	background-image: url('../public/images/pandapop-splatter.png');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-}*/
 
 .title {
-	text-decoration:none;
+  text-decoration: none;
 }

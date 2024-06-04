@@ -1,0 +1,30 @@
+nav {
+  margin-top: 4vh;
+  height: 100%;
+  font-family: "din-condensed", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+}
+
+header a :hover {
+  color: blue;
+}
+
+/*ul li a :hover {
+  color: #57AEB9;
+}
+
+ul li a :active {
+  color: #57AEB9;
+}
+
+ul li a :visited {
+  color: #57AEB9;
+}*/

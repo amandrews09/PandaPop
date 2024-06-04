@@ -1,0 +1,29 @@
+.about p {
+	color: black;
+	font-family: "din-condensed", sans-serif;
+	font-size: 20px;
+	margin: 40px;
+}
+
+h2 {
+	font-size: 75px;
+	color: #EE3C96;
+	padding-top: 20px;
+
+}
+
+.container {
+	padding-top: 100px;
+}
+
+/*.splatter-image body {
+	background-image: url('../public/images/pandapop-splatter.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}*/
+
+.title {
+	text-decoration:none;
+}

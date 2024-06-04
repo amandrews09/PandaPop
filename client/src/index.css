@@ -78,6 +78,10 @@ a {
   font-weight: bold;
 }
 
+.a-tag {
+  text-decoration: none;
+}
+
 a:hover {
   text-decoration: underline;
 }

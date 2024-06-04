@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Contact.css';
+import './contact.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -64,7 +64,7 @@ export default function Contact() {
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
         <div className="form-group-3 w-25">
-          {/*<label htmlFor="message">Message</label>*/}
+          {/* <label htmlFor="message">Message</label> */}
           <textarea
             className="form-control form-control-lg"
             id="message"

@@ -8,7 +8,7 @@ export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
 
@@ -21,25 +21,25 @@ export default function Contact() {
     }
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     const { name, value } = e.target;
     setErrors({ ...errors, [name]: value.trim() ? '' : `${name} is required` });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     // Handle form submission logic here
   };
-  
+
   return (
-    <div className="contact-container">
+    <div className="container d-flex flex-column align-items-center">
       <h2>CONTACT</h2>
       <form onSubmit={handleSubmit}>
         <p>LET'S CONNECT!</p>
-        <div className="form-group-1">
+        <div className="mb-3 w-75">
           {/*<label htmlFor="name">Name</label>*/}
           <input
-            className= "form-control"
+            className="form-control form-control-lg"
             type="text"
             id="name"
             name="name"
@@ -50,10 +50,10 @@ export default function Contact() {
           />
           {errors.name && <span className="error">{errors.name}</span>}
         </div>
-        <div className="form-group-2">
+        <div className="mb-3 w-75">
           {/*<label htmlFor="email">Email</label>*/}
           <input
-            className="form-control "
+            className="form-control form-control-lg"
             type="email"
             id="email"
             name="email"
@@ -64,10 +64,10 @@ export default function Contact() {
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
-        <div className="form-group-3">
+        <div className="mb-3 w-75">
           {/* <label htmlFor="message">Message</label> */}
           <textarea
-            className="form-control"
+            className="form-control form-control-lg"
             id="message"
             name="message"
             placeholder="MESSAGE:"
@@ -80,7 +80,6 @@ export default function Contact() {
         <button type="submit">SUBMIT</button>
       </form>
       <Footer />
-
     </div>
   );
 }

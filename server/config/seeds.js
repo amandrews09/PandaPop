@@ -68,7 +68,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'This delightful piece features a giraffe sitting gracefully, its long neck adorned with a playful patchwork of vibrant colors and bold patterns. Each section of the giraffe body is painted in a different hue, including bright oranges, blues, pinks, and greens, with fun details like polka dots, stars, and hearts. The giraffe has a cheerful expression and whimsical design, complete with a small crown on its head, makes it a standout piece that brings a touch of joy and artistic flair to any space.',
-      image: 'camera.jpg',
+      image: 'Giraffe.jpg',
       price: 40,
       quantity: 1
     },
@@ -121,7 +121,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Add a touch of colorful whimsy to your decor. This charming statue features a turtle with a lively, patchwork shell adorned with a mix of bright colors and playful patterns. Each segment of the shell is uniquely designed, incorporating fun elements like polka dots, geometric shapes, and bold hues. The turtle has a cheerful expression and vivid green body to bring an extra layer of joy to this delightful piece.',
-      image: 'alphabet-blocks.jpg',
+      image: 'Turtle.jpg',
       price: 30,
       quantity: 1
     },

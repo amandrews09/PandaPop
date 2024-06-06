@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductList from '../components/ProductList';
+import { useQuery } from '@apollo/client';
+import { QUERY_PRODUCTS } from '../utils/queries';
+import { getRandomFeaturedProducts, saveFeaturedProducts, getFeaturedProducts } from '../utils/helpers';
 import Footer from '../components/Footer';
 import './Home.css';
 
 const Home = () => {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  const { data } = useQuery(QUERY_PRODUCTS);
+
+  useEffect(() => {
+    const savedFeaturedProducts = getFeaturedProducts();
+    if (savedFeaturedProducts) {
+      setFeaturedProducts(savedFeaturedProducts);
+    } else if (data) {
+      const newFeaturedProducts = getRandomFeaturedProducts(data.products);
+      setFeaturedProducts(newFeaturedProducts);
+      saveFeaturedProducts(newFeaturedProducts);
+    }
+  }, [data]);
+
+
   return (
     <div>
       <div className="home">
         <div>
           <h2>FEATURED</h2>
-          <ProductList showTitle={false} limit={3} />
+          <ProductList productsToShow={featuredProducts} showBrowseHeader={false} />
         </div>
         <div>
           <h2>ABOUT</h2>

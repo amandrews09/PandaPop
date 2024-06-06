@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 const Browse = () => {
   return (
     <div className="container">
-      <ProductList />
+      <ProductList showBrowseHeader={true} />
       {/* <Cart /> */}
       <Footer />
     </div>

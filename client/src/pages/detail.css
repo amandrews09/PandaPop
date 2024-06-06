@@ -1,0 +1,19 @@
+.prod-desc p{
+	color: black;
+	font-size: 18px;
+	font-family: "din-condensed", sans-serif;
+}
+
+h2 {
+	text-transform: uppercase;
+}
+
+button {
+	font-family: "din-condensed", sans-serif;
+}
+
+.prod-info p {
+	color: black;
+	font-size: 20px;
+	font-family: "din-condensed", sans-serif;
+}

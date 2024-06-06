@@ -12,7 +12,7 @@ export default function Footer() {
     },
     panda: {
       width: '2vw',
-      marginBottom: '1vh'
+      marginBottom: '2vh'
     },
     p: {
       fontSize: '.7em'

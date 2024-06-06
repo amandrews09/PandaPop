@@ -6,6 +6,8 @@
   --spacing-two: calc(1rem);
   display: flex;
   width: auto;
+  min-height: 900px;
+  min-width: 1024px;
 }
 
 * {

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Footer from '../components/Footer';
+import './login.css';
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -31,27 +32,29 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-
-      <h2>Login</h2>
+    <div className="container d-flex flex-column align-items-left">
+    <h2>LOGIN</h2>
+    <div className="container d-flex flex-column align-items-center"></div>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
+        <div className="fmb-3 w-25">
+          {/*<label htmlFor="email">Email address:</label>*/}
           <input
-            placeholder="youremail@test.com"
+            className="form-control form-control-lg"
+            placeholder="EMAIL:"
             name="email"
             type="email"
-            id="email"
+            id="email3"
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className="fmb-3 w-25">
+          {/*<label htmlFor="pwd">Password:</label>*/}
           <input
-            placeholder="******"
+            className="form-control form-control-lg"
+            placeholder="PASSWORD:"
             name="password"
             type="password"
-            id="pwd"
+            id="pwd2"
             onChange={handleChange}
           />
         </div>
@@ -61,7 +64,7 @@ function Login(props) {
           </div>
         ) : null}
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit">SUBMIT</button>
         </div>
       </form>
       <Footer />

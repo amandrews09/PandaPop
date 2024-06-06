@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 import Footer from '../components/Footer';
+import './signup.css';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -32,44 +33,48 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-
-      <h2>Signup</h2>
+    <div className="container d-flex flex-column align-items-left">
+      <h2>SIGNUP</h2>
+      <div className="container d-flex flex-column align-items-center">
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+        <div className="fmb-3 w-50">
+          {/*<label htmlFor="firstName">First Name:</label>*/}
           <input
-            placeholder="First"
+            className="form-control form-control-lg"
+            placeholder="FIRST NAME:"
             name="firstName"
             type="firstName"
             id="firstName"
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
+        <div className="fmb-3 w-50">
+          {/*<label htmlFor="lastName">Last Name:</label>*/}
           <input
-            placeholder="Last"
+            className="form-control form-control-lg"
+            placeholder="LAST NAME:"
             name="lastName"
             type="lastName"
             id="lastName"
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
+        <div className="fmb-3 w-50">
+          {/*<label htmlFor="email">Email:</label>*/}
           <input
-            placeholder="youremail@test.com"
+            className="form-control form-control-lg"
+            placeholder="EMAIL:"
             name="email"
             type="email"
-            id="email"
+            id="email2"
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className="fmb-3 w-50">
+          {/*<label htmlFor="pwd">Password:</label>*/}
           <input
-            placeholder="******"
+            className="form-control form-control-lg"
+            placeholder="PASSWORD:"
             name="password"
             type="password"
             id="pwd"
@@ -77,11 +82,12 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit">SUBMIT</button>
         </div>
       </form>
       <Footer />
-    </div>
+      </div>
+      </div>
   );
 }
 

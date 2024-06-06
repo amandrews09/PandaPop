@@ -8,6 +8,8 @@ import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY, ADD_TO_CART, UPDATE_PRODUCTS } 
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
+import './detail.css';
+
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -80,15 +82,19 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <div className="container my-1">
-          <Link to="/browse">← Back to Products</Link>
 
           <h2>{currentProduct.name}</h2>
 
-          <p>{currentProduct.description}</p>
+          <div class="prod-desc">
+            <p>{currentProduct.description}</p>
+          </div>
 
-          <p>
-            <strong>Price:</strong>${currentProduct.price} <strong>Stock: </strong>
-            {currentProduct.quantity}
+          <div class="prod-info">
+            <p>
+              <strong >Price:</strong>${currentProduct.price}
+              <div className="me-3">
+                <strong>Stock: </strong>
+                {currentProduct.quantity}</div>
             <button className="me-3 ms-3" onClick={addToCart}>
               Add to Cart
             </button>
@@ -96,6 +102,7 @@ function Detail() {
               Remove from Cart
             </button>
           </p>
+          </div>
 
           <img src={`/images/${currentProduct.image}`} alt={currentProduct.name} />
         </div>

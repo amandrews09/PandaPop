@@ -1,0 +1,55 @@
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	font-family: 'din-condensed', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+button {
+	border-radius: 5px;
+	background-color: #f3b735;
+	padding-left: 50px;
+	padding-right: 50px;
+	font-size: 25px;
+	border: none;
+	margin: 10px;
+}
+
+p {
+	font-size: 25px;
+	color: #ee3c96;
+}
+
+#firstName {
+	border-radius: 5px;
+	border-color: #58aeb8;
+	border-width: 2px;
+	background-color: #d5eef3;
+}
+
+#lastName {
+	border-radius: 5px;
+	border-color: #58aeb8;
+	border-width: 2px;
+	background-color: #d5eef3;
+}
+
+#pwd {
+	border-radius: 5px;
+	border-color: #58aeb8;
+	border-width: 2px;
+	background-color: #d5eef3;
+}
+#email2 {
+	border-radius: 5px;
+	border-color: #58aeb8;
+	border-width: 2px;
+	background-color: #d5eef3;
+}
+
+input {
+	margin: 10px;
+}

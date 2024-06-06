@@ -19,12 +19,6 @@ function Nav() {
             <Link to="/contact">CONTACT</Link>
           </li>
           <li className="mx-1">
-            <Link to="/signup">SIGNUP</Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">LOGIN</Link>
-          </li>
-          <li className="mx-1">
             <Link to="/orderHistory">ORDER HISTORY</Link>
           </li>
           <li className="mx-1">
@@ -69,7 +63,7 @@ function Nav() {
 
       <nav>{showNavigation()}</nav>
 
-      
+
     </header>
   );
 }

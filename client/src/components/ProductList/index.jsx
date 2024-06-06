@@ -9,7 +9,7 @@ import { Row, Col } from 'react-bootstrap';
 import spinner from '../../assets/spinner.gif';
 import Nav from '../Nav';
 
-function ProductList({ showTitle = true, limit }) {
+function ProductList({ productsToShow, showBrowseHeader }) {
   const [state, dispatch] = useStoreContext();
 
   const { currentCategory } = state;
@@ -35,32 +35,25 @@ function ProductList({ showTitle = true, limit }) {
     }
   }, [data, loading, dispatch]);
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+  function filterProducts() {
+    if (!currentCategory) {
+      return state.products;
     }
-    return array;
+
+    return state.products.filter(
+      (product) => product.category._id === currentCategory
+    );
   }
 
-  function filterProducts() {
-    let filteredProducts = state.products;
-    if (currentCategory) {
-      filteredProducts = filteredProducts.filter(product => product.category._id === currentCategory);
-    }
-    if (limit) {
-      return shuffleArray(filteredProducts).slice(0, limit);
-    }
-    return filteredProducts;
-  }
+  const products = productsToShow || filterProducts();
 
   return (
     <div>
-      {showTitle && <h2>BROWSE PRODUCTS</h2>}
+      {showBrowseHeader && <h2>BROWSE PRODUCTS</h2>}
       <Row>
-        {state.products.length ? (
+        {products.length ? (
           <>
-            {filterProducts().map(product => (
+            {products.map(product => (
               <Col key={product._id} lg={4} className="mb-3" id="cards">
                 <ProductItem
                   key={product._id}

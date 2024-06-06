@@ -1,0 +1,15 @@
+#success1 {
+	margin-top: 50px;
+	display: flex;
+	align-content: center;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.success2 {
+	display: flex;
+	align-content: center;
+	flex-direction: row;
+	justify-content: center;
+}
+

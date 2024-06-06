@@ -32,11 +32,12 @@ export default function Contact() {
   };
 
   return (
-    <div className="container d-flex flex-column align-items-center">
+    <div className="container d-flex flex-column align-items-left">
       <h2>CONTACT</h2>
+      <div className="container d-flex flex-column align-items-center">
       <form onSubmit={handleSubmit}>
         <p>LET'S CONNECT!</p>
-        <div className="mb-3 w-75">
+        <div className="w-50">
           {/*<label htmlFor="name">Name</label>*/}
           <input
             className="form-control form-control-lg"
@@ -50,12 +51,12 @@ export default function Contact() {
           />
           {errors.name && <span className="error">{errors.name}</span>}
         </div>
-        <div className="mb-3 w-75">
+        <div className="mb-3 w-50">
           {/*<label htmlFor="email">Email</label>*/}
           <input
             className="form-control form-control-lg"
             type="email"
-            id="email"
+            id="email1"
             name="email"
             placeholder="EMAIL:"
             value={formState.email}
@@ -64,7 +65,7 @@ export default function Contact() {
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
-        <div className="mb-3 w-75">
+        <div className="mb-3 w-50">
           {/* <label htmlFor="message">Message</label> */}
           <textarea
             className="form-control form-control-lg"
@@ -76,10 +77,11 @@ export default function Contact() {
             onBlur={handleBlur}
           ></textarea>
           {errors.message && <span className="error">{errors.message}</span>}
-        </div>
+          </div>
         <button type="submit">SUBMIT</button>
       </form>
       <Footer />
-    </div>
+      </div>
+      </div>
   );
 }

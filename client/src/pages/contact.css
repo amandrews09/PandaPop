@@ -34,13 +34,15 @@ form {
   border-color: #58aeb8;
   border-width: 2px;
   background-color: #d5eef3;
+  margin-left: 0px;
 }
 
-#email {
+#email1 {
   border-radius: 5px;
   border-color: #58aeb8;
   border-width: 2px;
   background-color: #d5eef3;
+  margin-left: 0px;
 }
 
 #message {

@@ -2,8 +2,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
-const CartItem = ({ item }) => {
-
+const CartItem = ({ item, stock }) => {
   const [, dispatch] = useStoreContext();
 
   const removeFromCart = item => {
@@ -12,26 +11,25 @@ const CartItem = ({ item }) => {
       _id: item._id
     });
     idbPromise('cart', 'delete', { ...item });
-
   };
 
   const onChange = (e) => {
-    const value = e.target.value;
-    if (value === '0') {
+    const value = parseInt(e.target.value);
+    if (value === 0) {
       dispatch({
         type: REMOVE_FROM_CART,
         _id: item._id
       });
       idbPromise('cart', 'delete', { ...item });
-
-    } else {
+    } else if (value <= stock) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: item._id,
-        purchaseQuantity: parseInt(value)
+        purchaseQuantity: value
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
-
+      idbPromise('cart', 'put', { ...item, purchaseQuantity: value });
+    } else {
+      alert('Cannot add more than the available stock.');
     }
   }
 

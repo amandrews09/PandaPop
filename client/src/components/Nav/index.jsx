@@ -57,7 +57,7 @@ function Nav() {
       <Cart />
       <h1>
         <Link to="/">
-          <img className="w-75 ms-4 mt-5" src="../src/assets/pandapop-logo.png" alt="logo" />
+          <img className="mt-5" src="../src/assets/pandapop-logo.png" alt="logo" />
         </Link>
       </h1>
 

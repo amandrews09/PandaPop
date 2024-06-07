@@ -49,3 +49,11 @@ export const ADD_USER = gql`
     }
   }
 `;
+export const UPDATE_PRODUCT_QUANTITIES = gql`
+  mutation updateProductQuantities($updates: [ProductQuantityUpdate!]!) {
+    updateProductQuantities(updates: $updates) {
+      _id
+      quantity
+    }
+  }
+`;

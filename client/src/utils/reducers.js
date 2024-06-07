@@ -7,7 +7,7 @@ import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
-  TOGGLE_CART
+  TOGGLE_CART,
 } from "./actions";
 
 export const reducer = (state, action) => {

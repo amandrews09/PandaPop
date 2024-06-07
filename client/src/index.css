@@ -176,6 +176,7 @@ input:focus {
 .mx-1 {
   margin-right: var(--spacing-one);
   margin-left: var(--spacing-one);
+  text-wrap: nowrap;
 }
 
 .mx-2 {

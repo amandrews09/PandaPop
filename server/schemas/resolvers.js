@@ -114,6 +114,20 @@ const resolvers = {
 
       return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
+    updateProductQuantities: async (parent, { updates }) => {
+      const updatedProducts = [];
+
+      for (let update of updates) {
+        const updatedProduct = await Product.findByIdAndUpdate(
+          update._id,
+          { quantity: update.quantity },
+          { new: true }
+        );
+        updatedProducts.push(updatedProduct);
+      }
+
+      return updatedProducts;
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

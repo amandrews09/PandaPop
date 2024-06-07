@@ -46,6 +46,11 @@ const typeDefs = `
     quantity: Int
   }
 
+  input ProductQuantityUpdate {
+    _id: ID!
+    quantity: Int!
+  }
+
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]
@@ -60,6 +65,7 @@ const typeDefs = `
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
+    updateProductQuantities(updates: [ProductQuantityUpdate!]!): [Product]
     login(email: String!, password: String!): Auth
   }
 `;

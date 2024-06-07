@@ -14,21 +14,29 @@ function ProductItem(item) {
   const addToCart = () => {
     const itemInCart = cart.find(cartItem => cartItem._id === _id);
     if (itemInCart) {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: _id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      });
-      idbPromise('cart', 'put', {
-        ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      });
+      if (itemInCart.purchaseQuantity < quantity) {
+        dispatch({
+          type: UPDATE_CART_QUANTITY,
+          _id: _id,
+          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        });
+        idbPromise('cart', 'put', {
+          ...itemInCart,
+          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        });
+      } else {
+        alert('Cannot add more of this item, stock limit reached.');
+      }
     } else {
-      dispatch({
-        type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 },
-      });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+      if (quantity > 0) {
+        dispatch({
+          type: ADD_TO_CART,
+          product: { ...item, purchaseQuantity: 1 },
+        });
+        idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+      } else {
+        alert('Cannot add this item, stock limit reached.');
+      }
     }
   };
 
@@ -38,12 +46,12 @@ function ProductItem(item) {
         <div className="img-container">
           <img alt={name} src={`/images/${image}`} className="productImage" />
         </div>
-        <p>{name}</p>  
+        <p>{name}</p>
       </Link>
       <div className='d-flex flex-column align-items-center'>
         {quantity} {pluralize('item', quantity)} in stock
         <span>${price}</span>
-          <button onClick={addToCart}>ADD TO CART</button>
+        <button onClick={addToCart}>ADD TO CART</button>
       </div>
     </div>
   );

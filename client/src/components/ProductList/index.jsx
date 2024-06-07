@@ -6,8 +6,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import { Row, Col } from 'react-bootstrap';
-import spinner from '../../assets/spinner.gif';
-import Nav from '../Nav';
+// import spinner from '../../assets/spinner.gif';
+// import Nav from '../Nav';
 
 function ProductList({ productsToShow, showBrowseHeader }) {
   const [state, dispatch] = useStoreContext();
@@ -69,7 +69,7 @@ function ProductList({ productsToShow, showBrowseHeader }) {
         ) : (
           <h3>You haven't added any products yet!</h3>
         )}
-        {loading ? <img src={spinner} alt="loading" /> : null}
+        {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
       </Row>
     </div>
   );

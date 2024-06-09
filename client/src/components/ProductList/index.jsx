@@ -48,13 +48,13 @@ function ProductList({ productsToShow, showBrowseHeader }) {
   const products = productsToShow || filterProducts();
 
   return (
-    <div>
+    <div className='container-fluid'>
       {showBrowseHeader && <h2>BROWSE PRODUCTS</h2>}
       <Row>
         {products.length ? (
           <>
             {products.map(product => (
-              <Col key={product._id} lg={4} className="mb-3" id="cards">
+              <Col key={product._id} md={4} className="mb-3" id="cards">
                 <ProductItem
                   key={product._id}
                   _id={product._id}

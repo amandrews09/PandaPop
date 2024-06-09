@@ -11,9 +11,9 @@ export const LOGIN = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
+export const COMPLETE_CHECKOUT = gql`
+  mutation ($sessionId: String!) {
+    completeCheckout(sessionId: $sessionId) {
       purchaseDate
       products {
         _id
@@ -54,6 +54,13 @@ export const UPDATE_PRODUCT_QUANTITIES = gql`
     updateProductQuantities(updates: $updates) {
       _id
       quantity
+    }
+  }
+`;
+export const CHECKOUT = gql`
+  mutation checkout($products: [CartItem!]!) {
+    checkout(products: $products) {
+      session
     }
   }
 `;

@@ -1,21 +1,22 @@
 import { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 //import Jumbotron from '../components/Success';
-import { ADD_ORDER } from '../utils/mutations';
+import { COMPLETE_CHECKOUT } from '../utils/mutations';
 import { idbPromise } from '../utils/helpers';
 import './success.css';
 
 function Success() {
-  const [addOrder] = useMutation(ADD_ORDER);
+  const [completeCheckout] = useMutation(COMPLETE_CHECKOUT);
 
   useEffect(() => {
     async function saveOrder() {
-      const cart = await idbPromise('cart', 'get');
-      const products = cart.map((item) => item._id);
+      // const cart = await idbPromise('cart', 'get');
+      // const products = cart.map((item) => item._id);
+      const sessionId = new URLSearchParams (location.search).get("session_id")
 
-      if (products.length) {
-        const { data } = await addOrder({ variables: { products } });
-        const productData = data.addOrder.products;
+      if (sessionId) {
+        const { data } = await completeCheckout({ variables: { sessionId } });
+        const productData = data.completeCheckout.products;
 
         productData.forEach((item) => {
           idbPromise('cart', 'delete', item);
@@ -28,7 +29,7 @@ function Success() {
     }
 
     saveOrder();
-  }, [addOrder]);
+  }, [completeCheckout]);
 
   return (
     <div className='container'>

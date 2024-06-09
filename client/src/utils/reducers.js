@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import {
   UPDATE_PRODUCTS,
   ADD_TO_CART,
@@ -19,52 +20,79 @@ export const reducer = (state, action) => {
       };
 
     case ADD_TO_CART:
+      const cartItem = {
+        ...(state.cart.find(
+          ({ product }) => product && product._id === action.product._id
+        ) ?? { product: action.product, quantity: 0 }),
+      };
+      cartItem.quantity += 1;
       return {
         ...state,
         cartOpen: true,
-        cart: [...state.cart, action.product],
+        cart: [
+          ...state.cart.filter(
+            ({ product }) => product && product._id !== action.product._id
+          ),
+          cartItem,
+        ],
       };
 
     case ADD_MULTIPLE_TO_CART:
+      const productIds = action.products.map(({ _id }) => _id);
+      const updatedCartItems = state.cart
+        .filter(({ product }) => product && productIds.includes(product._id))
+        .map(({ product, quantity }) => ({ product, quantity: quantity + 1 }));
+      const newCartItems = action.products
+        .filter(
+          ({ _id }) =>
+            !updatedCartItems.some(({ product }) => product && product._id === _id)
+        )
+        .map((product) => ({ product, quantity: 1 }));
       return {
         ...state,
-        cart: [...state.cart, ...action.products],
+        cart: [
+          ...state.cart.filter(
+            ({ product }) => product && !productIds.includes(product._id)
+          ),
+          ...updatedCartItems,
+          ...newCartItems,
+        ],
       };
 
     case UPDATE_CART_QUANTITY:
       return {
         ...state,
         cartOpen: true,
-        cart: state.cart.map(product => {
-          if (action._id === product._id) {
-            product.purchaseQuantity = action.purchaseQuantity
+        cart: state.cart.map((cartItem) => {
+          if (cartItem.product && action._id === cartItem.product._id) {
+            cartItem.quantity = action.purchaseQuantity;
           }
-          return product
-        })
+          return cartItem;
+        }),
       };
 
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter(product => {
-        return product._id !== action._id;
+      let newState = state.cart.filter((cartItem) => {
+        return cartItem.product && cartItem.product._id !== action._id;
       });
 
       return {
         ...state,
         cartOpen: newState.length > 0,
-        cart: newState
+        cart: newState,
       };
 
     case CLEAR_CART:
       return {
         ...state,
         cartOpen: false,
-        cart: []
+        cart: [],
       };
 
     case TOGGLE_CART:
       return {
         ...state,
-        cartOpen: !state.cartOpen
+        cartOpen: !state.cartOpen,
       };
 
     case UPDATE_CATEGORIES:
@@ -76,8 +104,8 @@ export const reducer = (state, action) => {
     case UPDATE_CURRENT_CATEGORY:
       return {
         ...state,
-        currentCategory: action.currentCategory
-      }
+        currentCategory: action.currentCategory,
+      };
 
     default:
       return state;

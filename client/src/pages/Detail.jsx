@@ -96,7 +96,7 @@ function Detail() {
           </div>
 
           <div className="prod-info">
-            <p>
+            
               <strong>Price:</strong>${currentProduct.price}
               <div className="me-3">
                 <strong>Stock: </strong>
@@ -108,7 +108,7 @@ function Detail() {
               <button disabled={!cart.find(p => p._id === currentProduct._id)} onClick={removeFromCart}>
                 Remove from Cart
               </button>
-            </p>
+            
           </div>
 
           <img src={`/images/${currentProduct.image}`} alt={currentProduct.name} />

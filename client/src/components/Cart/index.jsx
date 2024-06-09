@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import { useLazyQuery, useMutation } from '@apollo/client';
-import { QUERY_CHECKOUT } from '../../utils/queries';
-import { UPDATE_PRODUCT_QUANTITIES } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { CHECKOUT, UPDATE_PRODUCT_QUANTITIES } from '../../utils/mutations';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
@@ -14,7 +13,7 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  const [checkout, { data }] = useMutation(CHECKOUT);
   const [updateProductQuantities] = useMutation(UPDATE_PRODUCT_QUANTITIES);
 
   useEffect(() => {
@@ -43,24 +42,41 @@ const Cart = () => {
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
-      sum += item.price * item.purchaseQuantity;
+      sum += item.product.price * item.quantity;
     });
     return sum.toFixed(2);
   }
 
   async function submitCheckout() {
-    const updates = state.cart.map(item => ({
-      _id: item._id,
-      quantity: item.quantity - item.purchaseQuantity,
-    }));
+    try {
+      const updates = state.cart.map(item => ({
+        _id: item.product._id,
+        quantity: item.product.quantity - item.quantity,
+      }));
 
-    await updateProductQuantities({ variables: { updates } });
+      // Log updates to ensure they are correct
+      console.log('Updates:', updates);
 
-    getCheckout({
-      variables: {
-        products: [...state.cart],
-      },
-    });
+      // Validate updates
+      const isValid = updates.every(update => update._id && typeof update.quantity === 'number');
+      if (!isValid) {
+        console.error('Invalid updates:', updates);
+        return;
+      }
+
+      // await updateProductQuantities({ variables: { updates } });
+      console.log (state.cart)
+      checkout({
+        variables: {
+          products: state.cart.map(({ product, quantity }) => ({
+            productId: product._id,
+            quantity,
+          })),
+        },
+      });
+    } catch (error) {
+      console.error('Error during checkout:', error);
+    }
   }
 
   if (!state.cartOpen) {
@@ -82,7 +98,7 @@ const Cart = () => {
       {state.cart.length ? (
         <div>
           {state.cart.map(item => (
-            <CartItem key={item._id} item={item} />
+            <CartItem key={item.product._id} item={item.product} />
           ))}
 
           <div className="flex-row space-between">

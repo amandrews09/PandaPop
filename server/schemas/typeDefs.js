@@ -51,22 +51,28 @@ const typeDefs = `
     quantity: Int!
   }
 
+  input CartItem {
+    productId: ID!
+    quantity: Int!
+  }
+
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
     user: User
     order(_id: ID!): Order
-    checkout(products: [ProductInput]): Checkout
+    
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
+    completeCheckout(sessionId: String!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    updateProductQuantities(updates: [ProductQuantityUpdate!]!): [Product]
+    #updateProduct(_id: ID!, quantity: Int!): Product
+    #updateProductQuantities(updates: [ProductQuantityUpdate!]!): [Product]
     login(email: String!, password: String!): Auth
+    checkout(products: [CartItem!]!): Checkout
   }
 `;
 

@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { getRandomFeaturedProducts, saveFeaturedProducts, getFeaturedProducts } from '../utils/helpers';
 import Footer from '../components/Footer';
-import './Home.css';
+import './home.css';
 
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -33,7 +33,7 @@ const Home = () => {
         <div>
           <h2>ABOUT</h2>
           <div className="d-flex">
-            <img src="../public/images/panda-pic.jpg" height="10%" width="40%" alt="" />
+            <img src="./panda-pic.jpg" height="10%" width="40%" alt="" />
             <div className="about">
               <p>
                 Hi! I'm Manda the panda. My journey into the world of pop art began in early 2020, just before the onset

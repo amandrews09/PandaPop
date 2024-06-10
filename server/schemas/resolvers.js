@@ -1,6 +1,7 @@
 const { User, Product, Category, Order } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const cloudinary = require('cloudinary').v2;
 
 const resolvers = {
   Query: {
@@ -37,7 +38,7 @@ const resolvers = {
         return user;
       }
 
-      throw AuthenticationError;
+      throw new AuthenticationError('Not logged in');
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
@@ -49,15 +50,13 @@ const resolvers = {
         return user.orders.id(_id);
       }
 
-      throw AuthenticationError;
+      throw new AuthenticationError('Not logged in');
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       await Order.create({ products: args.products.map(({ _id }) => _id) });
-      // eslint-disable-next-line camelcase
       const line_items = [];
 
-      // eslint-disable-next-line no-restricted-syntax
       for (const product of args.products) {
         line_items.push({
           price_data: {
@@ -100,14 +99,14 @@ const resolvers = {
         return order;
       }
 
-      throw AuthenticationError;
+      throw new AuthenticationError('Not logged in');
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
       }
 
-      throw AuthenticationError;
+      throw new AuthenticationError('Not logged in');
     },
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
@@ -132,19 +131,30 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    uploadImage: async (parent, { image }) => {
+      try {
+        const uploadResponse = await cloudinary.uploader.upload(image, {
+          upload_preset: 'ml_default',
+        });
+        return { url: uploadResponse.url };
+      } catch (err) {
+        console.error(err);
+        throw new Error('Image upload failed');
+      }
+    },
   }
 };
 

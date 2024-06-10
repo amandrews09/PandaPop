@@ -37,6 +37,10 @@ const typeDefs = `
     user: User
   }
 
+  type ImageUploadResponse {
+    url: String
+  }
+
   input ProductInput {
     _id: ID
     purchaseQuantity: Int
@@ -67,6 +71,7 @@ const typeDefs = `
     updateProduct(_id: ID!, quantity: Int!): Product
     updateProductQuantities(updates: [ProductQuantityUpdate!]!): [Product]
     login(email: String!, password: String!): Auth
+    uploadImage(image: String!): ImageUploadResponse
   }
 `;
 

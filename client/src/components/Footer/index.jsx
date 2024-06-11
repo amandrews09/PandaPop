@@ -21,7 +21,7 @@ export default function Footer() {
 
   return (
     <footer style={styles.footer} className="d-flex flex-column align-items-center">
-      <img style={styles.panda} src="../public/images/pandapop-icon.png" alt="" />
+      <img style={styles.panda} src="/pandapop-icon.png" alt="" />
       <ul style={styles.ul} className="nav d-flex justify-content-between">
        <a href="https://www.linkedin.com/in/amanda-andrews-4baa72290"><li className="bi bi-linkedin icon"></li></a> 
         <a href="https://www.instagram.com/amandrewsart/"><li className="bi bi-instagram icon"></li></a>

@@ -58,7 +58,7 @@ Client Side
     Vite for development and build tooling
 
 ## Deployed Application URL
- https://agile-shelf-42690-253a8bfa270f.herokuapp.com/
+ https://arcane-reaches-80020-98622cfbfc9d.herokuapp.com/
 
 ## Credits
 The Winged Coders: Michael, Mallory, Josh, Sarah, Amanda

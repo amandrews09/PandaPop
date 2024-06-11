@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Cart from '../Cart';
 import './nav.css';
 
-
 function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -22,7 +21,9 @@ function Nav() {
             <Link to="/orderHistory">ORDER HISTORY</Link>
           </li>
           <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <Link to="/upload">FILE UPLOAD</Link>
+          </li>
+          <li className="mx-1">
             <a href="/" onClick={() => Auth.logout()}>
               LOGOUT
             </a>
@@ -47,6 +48,9 @@ function Nav() {
           <li className="mx-1">
             <Link to="/login">LOGIN</Link>
           </li>
+          <li className="mx-1">
+            <Link to="/Upload">FILE UPLOAD</Link>
+          </li>
         </ul>
       );
     }
@@ -57,13 +61,10 @@ function Nav() {
       <Cart />
       <h1>
         <Link to="/">
-          <img className="mt-5" src="../src/assets/pandapop-logo.png" alt="logo" />
+          <img className="mt-5" src="./pandapop-logo.png" alt="logo" />
         </Link>
       </h1>
-
       <nav>{showNavigation()}</nav>
-
-
     </header>
   );
 }

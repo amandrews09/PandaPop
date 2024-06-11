@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom/client'
-import './index.css'
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
@@ -12,14 +12,13 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
-
-
+import Upload from './pages/Upload';  // Import the Upload component
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    error: <NoMatch />,
+    errorElement: <NoMatch />,  // Note the correct prop is `errorElement` not `error`
     children: [
       {
         index: true,
@@ -49,6 +48,9 @@ const router = createBrowserRouter([
       }, {
         path: '/products/:id',
         element: <Detail />
+      }, {
+        path: '/upload',  // Add a new route for the upload page
+        element: <Upload />
       }
     ]
   }
@@ -56,4 +58,4 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-)
+);

@@ -1,10 +1,13 @@
 #root {
-  --light: #fafafa;
-  --dark: #272f32;
+  --light: #FAFAFA;
+  --dark: #272F32;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
-  min-height: 100vh;
+  display: flex;
+  width: auto;
+  min-height: 900px;
+  min-width: 1024px;
 }
 
 * {

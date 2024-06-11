@@ -8,6 +8,7 @@
   - [Usage](#usage)
   - [Scripts](#scripts)
   - [Technologies](#technologies)
+  - [Deployed Application URL](#deployed-application-url)
   - [Credits](#credits)
 
 ## Description
@@ -55,8 +56,9 @@ Client Side
     Stripe.js
     Bootstrap with React-Bootstrap
     Vite for development and build tooling
-    ESLint for linting
-    Vitest for testing
+
+## Deployed Application URL
+ https://arcane-reaches-80020-98622cfbfc9d.herokuapp.com/
 
 ## Credits
 The Winged Coders: Michael, Mallory, Josh, Sarah, Amanda

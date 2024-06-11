@@ -8,6 +8,7 @@
   - [Usage](#usage)
   - [Scripts](#scripts)
   - [Technologies](#technologies)
+  - [Application Appearance and Functionality](#application-appearance-and-functionality)
   - [Deployed Application URL](#deployed-application-url)
   - [Credits](#credits)
 
@@ -56,6 +57,9 @@ Client Side
     Stripe.js
     Bootstrap with React-Bootstrap
     Vite for development and build tooling
+
+## Application Appearance and Functionality
+![Webpage titled "Panda Pop" featuring a Home page with Featured Products for sale and an About Me section, a Browse Page with all Products, a Contact Page, an Order History Page](https://github.com/amandrews09/PandaPop/blob/main/public/images/pandapop-gif.gif)
 
 ## Deployed Application URL
  https://arcane-reaches-80020-98622cfbfc9d.herokuapp.com/

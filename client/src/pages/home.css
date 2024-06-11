@@ -13,7 +13,7 @@ h2 {
 
 .home {
   padding-top: 100px;
-  background-image: url('../public/images/pandapop-splatter.png');
+  background-image: url('./pandapop-splatter.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
